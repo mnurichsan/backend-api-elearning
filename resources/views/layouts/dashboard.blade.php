@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>AngkutApps - Dashboard</title>
+    <title>Elearning - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('asset_backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -28,7 +28,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('admin.layouts.sidebar')
+        @include('layouts.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -38,7 +38,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include('admin.layouts.header')
+                @include('layouts.header')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -59,7 +59,7 @@
             </div>
             <!-- End of Main Content -->
 
-            @include('admin.layouts.footer')
+            @include('layouts.footer')
 
         </div>
         <!-- End of Content Wrapper -->
@@ -143,13 +143,12 @@
     <script src="{{asset('asset_backend/js/sb-admin-2.min.js')}}"></script>
 
     <!-- Page level plugins -->
-    <script src="{{asset('asset_backend/vendor/chart.js/Chart.min.js')}}"></script>
+
     <script src="{{asset('asset_backend/vendor/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('asset_backend/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="{{asset('asset_backend/js/demo/chart-area-demo.js')}}"></script>
-    <script src="{{asset('asset_backend/js/demo/chart-pie-demo.js')}}"></script>
+
     <script src="{{asset('asset_backend/js/demo/datatables-demo.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
