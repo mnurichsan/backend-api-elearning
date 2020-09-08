@@ -49,8 +49,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Kelas</h6>
-                <a class="collapse-item" href="">All Kelas</a>
-                <a class="collapse-item" href="">Trash Kelas</a>
+                <a class="collapse-item" href="{{route('kelas.index')}}">All Kelas</a>
+                <a class="collapse-item" href="{{route('kelas.trash')}}">Trash Kelas</a>
             </div>
         </div>
     </li>
