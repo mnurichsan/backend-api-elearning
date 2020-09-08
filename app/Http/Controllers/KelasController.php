@@ -30,6 +30,7 @@ class KelasController extends Controller
      */
     public function create()
     {
+
         $jurusans = Jurusan::all();
         $gurus = User::all();
         return view('kelas.create', compact('jurusans', 'gurus'));
@@ -49,13 +50,17 @@ class KelasController extends Controller
             'guru' => 'required'
         ]);
 
+        $image = $request->image;
+        $imageName =  time() . $image->getClientOriginalName();
+        $image->move('asset_backend/img/upload/kelas', $imageName);
+
         $kelas = [
             'id' => Uuid::generate(4),
             'name' => $request->name,
             'slug' => Str::slug($request->name),
             'id_jurusan' => $request->jurusan,
             'id_user' => $request->guru,
-            'image' => 'image.jpg'
+            'image' => 'asset_backend/img/upload/kelas/' . $imageName
         ];
 
         Kelas::create($kelas);
@@ -102,15 +107,36 @@ class KelasController extends Controller
             'guru' => 'required'
         ]);
 
-        $kelas = [
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
-            'id_jurusan' => $request->jurusan,
-            'id_user' => $request->guru,
-            'image' => 'image.jpg'
-        ];
+        $kelasData = Kelas::findOrFail($id);
 
-        Kelas::findOrFail($id)->update($kelas);
+        if ($request->has('image')) {
+
+            $image = $request->image;
+            $imageName =  time() . $image->getClientOriginalName();
+            $image->move('asset_backend/img/upload/kelas', $imageName);
+
+            $kelas = [
+                'name' => $request->name,
+                'slug' => Str::slug($request->name),
+                'id_jurusan' => $request->jurusan,
+                'id_user' => $request->guru,
+                'image' => 'asset_backend/img/upload/kelas/' . $imageName
+            ];
+
+            $file_path = $kelasData->image;
+            if (file_exists($file_path)) {
+                unlink($file_path);
+            }
+        } else {
+            $kelas = [
+                'name' => $request->name,
+                'slug' => Str::slug($request->name),
+                'id_jurusan' => $request->jurusan,
+                'id_user' => $request->guru
+            ];
+        }
+
+        $kelasData->update($kelas);
         toast('Data berhasil di update', 'success');
         return redirect()->route('kelas.index');
     }

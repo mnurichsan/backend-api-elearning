@@ -42,12 +42,15 @@ class JurusanController extends Controller
             'name' => 'required',
             'description' => 'required'
         ]);
+        $image = $request->image;
+        $imageName =  time() . $image->getClientOriginalName();
+        $image->move('asset_backend/img/upload/jurusan', $imageName);
 
         $jurusan = [
             'id' => Uuid::generate(4),
             'name' => $request->name,
             'description' => $request->description,
-            'image' => 'image.jpg'
+            'image' => 'asset_backend/img/upload/jurusan/' . $imageName
         ];
 
         Jurusan::create($jurusan);
@@ -87,18 +90,37 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $jurusanData =  Jurusan::findOrFail($id);
         $this->validate($request, [
             'name' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'image' => 'required'
         ]);
 
-        $jurusan = [
-            'name' => $request->name,
-            'description' => $request->description,
-            'image' => 'image.jpg'
-        ];
 
-        Jurusan::findOrFail($id)->update($jurusan);
+        if ($request->has('image')) {
+            $image = $request->image;
+            $imageName =  time() . $image->getClientOriginalName();
+            $image->move('asset_backend/img/upload/jurusan', $imageName);
+
+            $jurusan = [
+                'name' => $request->name,
+                'description' => $request->description,
+                'image' => 'asset_backend/img/upload/jurusan/' . $imageName
+            ];
+
+            $file_path = $jurusanData->image;
+            if (file_exists($file_path)) {
+                unlink($file_path);
+            }
+        } else {
+            $jurusan = [
+                'name' => $request->name,
+                'description' => $request->description
+            ];
+        }
+
+        $jurusanData->update($jurusan);
         toast('data berhasil di update', 'success');
         return redirect()->route('jurusan.index');
     }

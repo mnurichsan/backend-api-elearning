@@ -9,7 +9,7 @@
                 <a href="{{route('jurusan.index')}}" class="btn btn-md btn-success rounded-pill shadow-lg"><i class="fas fa-arrow-left"></i> Back</a>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{route('jurusan.update',$jurusan->id)}}">
+                <form method="POST" action="{{route('jurusan.update',$jurusan->id)}}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -29,6 +29,10 @@
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label><br>
+                        <input type="file" class="form-control" name="image">
                     </div>
                     <button type="submit" class="btn btn-primary float-right">Update</button>
                     <button type="reset" class="btn btn-danger float-right mr-1">Reset</button>

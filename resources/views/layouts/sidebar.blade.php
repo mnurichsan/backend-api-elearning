@@ -62,7 +62,7 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Guru</h6>
-                <a class="collapse-item" href="">All Guru</a>
+                <a class="collapse-item" href="{{route('guru.index')}}">All Guru</a>
                 <a class="collapse-item" href="">Trash Guru</a>
             </div>
         </div>

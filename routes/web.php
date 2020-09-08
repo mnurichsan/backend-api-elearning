@@ -30,3 +30,6 @@ Route::get('/kelas/trash', 'KelasController@getTrash')->name('kelas.trash');
 Route::get('/kelas/trash/{id}/restore', 'KelasController@restore')->name('kelas.restore');
 Route::delete('/kelas/trash/{id}', 'KelasController@delete')->name('kelas.delete');
 Route::resource('/kelas', 'KelasController');
+
+//guru
+Route::resource('/guru', 'GuruController');

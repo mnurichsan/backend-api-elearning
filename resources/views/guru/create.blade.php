@@ -1,18 +1,17 @@
 @extends('layouts.dashboard')
-@section('title','Create Kelas')
+@section('title','Create Guru')
 @section('content')
-
 <div class="row">
     <div class="col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a href="{{route('kelas.index')}}" class="btn btn-md btn-success rounded-pill shadow-lg"><i class="fas fa-arrow-left"></i> Back</a>
+                <a href="{{route('guru.index')}}" class="btn btn-md btn-success rounded-pill shadow-lg"><i class="fas fa-arrow-left"></i> Back</a>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{route('kelas.store')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('guru.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label>Nama Kelas</label>
+                        <label>Nama Guru</label>
                         <input type="text" name="name" class="form-control form-control-user rounded-pill @error('name') is-invalid @enderror">
                         @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -21,36 +20,31 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>Jurusan</label>
-                        <select class="custom-select custom-select-md" name="jurusan">
-                            <option selected>-- Jurusan -- </option>
-                            @foreach($jurusans as $jurusan)
-                            <option value="{{$jurusan->id}}">{{$jurusan->name}}</option>
-                            @endforeach
-                        </select>
-                        @error('jurusan')
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control form-control-user rounded-pill @error('email') is-invalid @enderror">
+                        @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>Wali Kelas</label>
-                        <select class="custom-select custom-select-md" name="guru">
-                            <option selected>-- Guru -- </option>
-                            @foreach($gurus as $guru)
-                            <option value="{{$guru->id}}">{{$guru->name}}</option>
-                            @endforeach
-                        </select>
-                        @error('jurusan')
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control form-control-user rounded-pill @error('password') is-invalid @enderror">
+                        @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>Image</label><br>
-                        <input type="file" class="form-control" name="image">
+                        <label>Konfirmasi Password</label>
+                        <input type="password" name="konfirmpass" class="form-control form-control-user rounded-pill @error('konfirmpass') is-invalid @enderror">
+                        @error('konfirmpass')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary float-right">Submit</button>
                     <button type="reset" class="btn btn-danger float-right mr-1">Reset</button>

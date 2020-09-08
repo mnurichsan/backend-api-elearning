@@ -9,7 +9,7 @@
                 <a href="{{route('jurusan.index')}}" class="btn btn-md btn-success rounded-pill shadow-lg"><i class="fas fa-arrow-left"></i> Back</a>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{route('jurusan.store')}}">
+                <form method="POST" action="{{route('jurusan.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>Nama Jurusan</label>
@@ -28,6 +28,10 @@
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label><br>
+                        <input type="file" class="form-control" name="image">
                     </div>
                     <button type="submit" class="btn btn-primary float-right">Submit</button>
                     <button type="reset" class="btn btn-danger float-right mr-1">Reset</button>

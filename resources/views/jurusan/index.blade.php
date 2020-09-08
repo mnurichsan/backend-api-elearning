@@ -35,7 +35,7 @@
                                 <td>{{$key + 1}}</td>
                                 <td>{{$jurusan->name}}</td>
                                 <td>{{$jurusan->description}}</td>
-                                <td>{{$jurusan->image}}</td>
+                                <td><img class="img-fluid" width="100px" src="{{asset($jurusan->image)}}"></td>
                                 <td>
                                     <a href="{{route('jurusan.edit',$jurusan->id)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                                     <a href="{{route('jurusan.destroy',$jurusan->id)}}" class="btn btn-sm btn-danger btn-hapus"><i class="fas fa-trash"></i></a>
