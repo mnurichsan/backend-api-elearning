@@ -33,3 +33,6 @@ Route::resource('/kelas', 'KelasController');
 
 //guru
 Route::resource('/guru', 'GuruController');
+
+//siswa
+Route::resource('/siswa', 'SiswaController');

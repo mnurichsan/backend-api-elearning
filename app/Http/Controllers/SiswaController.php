@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class GuruController extends Controller
+class SiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class GuruController extends Controller
      */
     public function index()
     {
-        $gurus = User::where('roles', 'Guru')->get();
-
-        return view('guru.index', compact('gurus'));
+        $siswas = User::where('roles', 'Siswa')->get();
+        return view('siswa.index', compact('siswas'));
     }
 
     /**
@@ -27,7 +26,7 @@ class GuruController extends Controller
      */
     public function create()
     {
-        return view('guru.create');
+        return view('siswa.create');
     }
 
     /**
@@ -46,18 +45,18 @@ class GuruController extends Controller
         ]);
 
         if ($request->password == $request->konfirmpass) {
-            $guru = [
+            $siswa = [
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'roles' => 'Guru'
+                'roles' => 'Siswa'
             ];
-            User::create($guru);
+            User::create($siswa);
             toast('Data berhasil di tambah', 'success');
-            return redirect()->route('guru.index');
+            return redirect()->route('siswa.index');
         } else {
             toast('Password tidak sama', 'error');
-            return redirect()->route('guru.create');
+            return redirect()->route('siswa.create');
         }
     }
 
@@ -80,9 +79,8 @@ class GuruController extends Controller
      */
     public function edit($id)
     {
-        $guru = User::findOrFail($id);
-
-        return view('guru.edit', compact('guru'));
+        $siswa = User::findOrFail($id);
+        return view('siswa.edit', compact('siswa'));
     }
 
     /**
@@ -99,27 +97,26 @@ class GuruController extends Controller
             'email' => 'required',
             'password' => 'nullable|string|min:8'
         ]);
-
         if ($request->password && $request->konfirmpass == "") {
-            $guru = [
+            $siswa = [
                 'name' => $request->name,
                 'email' => $request->email
             ];
         } else {
             if ($request->password == $request->konfirmpass) {
-                $guru = [
+                $siswa = [
                     'name' => $request->name,
                     'email' => $request->email,
                     'password' => Hash::make($request->password)
                 ];
             } else {
                 toast('Password tidak sama', 'error');
-                return redirect()->route('guru.edit', $id);
+                return redirect()->route('siswa.edit', $id);
             }
         }
-        User::findOrFail($id)->update($guru);
+        User::findOrFail($id)->update($siswa);
         toast('data berhasil di update', 'success');
-        return redirect()->route('guru.index');
+        return redirect()->route('siswa.index');
     }
 
     /**
@@ -132,6 +129,6 @@ class GuruController extends Controller
     {
         User::findOrFail($id)->delete();
         toast('data berhasil di hapus', 'success');
-        return redirect()->route('guru.index');
+        return redirect()->route('siswa.index');
     }
 }

@@ -76,7 +76,7 @@
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Siswa</h6>
-                <a class="collapse-item" href="">All Siswa</a>
+                <a class="collapse-item" href="{{route('siswa.index')}}">All Siswa</a>
                 <a class="collapse-item" href="">Trash Siswa</a>
             </div>
         </div>
