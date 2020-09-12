@@ -15,6 +15,8 @@
 //     return view('welcome');
 // });
 
+
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -36,3 +38,9 @@ Route::resource('/guru', 'GuruController');
 
 //siswa
 Route::resource('/siswa', 'SiswaController');
+
+//content
+Route::get('/content', 'ContentController@index')->name('content.index');
+Route::get('/content/{id}', 'ContentController@contentKelas')->name('content.kelas');
+Route::get('/content/kelas/{slug}/{id}', 'ContentController@detailKelas')->name('detail.kelas');
+// Route::get('/content/kelas/{slug}/mapel', 'ContentController@mapelKelas')->name('mapel.kelas');

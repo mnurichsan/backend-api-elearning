@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Model\Kelas', 'user_id', 'id');
     }
+
+    public function siswa()
+    {
+        return $this->hasOne('App\Model\Kelas', 'id_kelas', 'id');
+    }
 }
