@@ -32,7 +32,7 @@ class KelasController extends Controller
     {
 
         $jurusans = Jurusan::all();
-        $gurus = User::all();
+        $gurus = User::where('roles', 'Guru')->get();
         return view('kelas.create', compact('jurusans', 'gurus'));
     }
 

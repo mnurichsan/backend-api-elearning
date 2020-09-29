@@ -35,8 +35,8 @@
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$kelas->name}}</td>
-                                <td>{{$kelas->jurusan->name}}</td>
-                                <td>{{$kelas->walikelas->name}}</td>
+                                <td>{{$kelas->jurusan['name']}}</td>
+                                <td>{{$kelas->walikelas['name']}}</td>
                                 <td><img class="img-fluid" src="{{asset($kelas->image)}}" width="100px"> </td>
                                 <td>
                                     <a href="{{route('kelas.restore',$kelas->id)}}" class="btn btn-sm btn-warning"><i class="fas fa-recycle"></i></a>

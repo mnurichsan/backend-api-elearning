@@ -20,4 +20,14 @@ class Kelas extends Model
     {
         return $this->belongsTo('App\User', 'id_user', 'id');
     }
+
+    public function user()
+    {
+        return $this->hasOne('App\User', 'id_user', 'id');
+    }
+
+    public function mapel()
+    {
+        return $this->hasMany('App\Model\Mapel', 'id_kelas', 'id');
+    }
 }

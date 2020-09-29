@@ -1,9 +1,15 @@
-<!-- Footer -->
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; E-learning 2020</span>
-        </div>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+    <strong>Copyright &copy; E-learning 2020</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.0.5
     </div>
 </footer>
-<!-- End of Footer -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+<!-- ./wrapper -->

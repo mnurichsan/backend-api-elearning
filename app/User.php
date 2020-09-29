@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function siswa()
     {
-        return $this->hasOne('App\Model\Kelas', 'id_kelas', 'id');
+        return $this->belongsTo('App\Model\Kelas', 'id_kelas', 'id');
     }
 }

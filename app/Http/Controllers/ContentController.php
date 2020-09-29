@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Model\Jurusan;
 use App\Model\Kelas;
+use App\Model\Mapel;
 use App\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Webpatser\Uuid\Uuid;
 
 class ContentController extends Controller
 {
@@ -28,8 +31,58 @@ class ContentController extends Controller
     {
         $kelas = Kelas::where('slug', $slug)->firstOrFail();
         $siswas = User::where('id_kelas', $id)->get();
+        $mapels = Mapel::with('kelas')->where('id_kelas', $id)->get();
+        //dd($mapels);
+        // return $mapels;
+        return view('mapel.index', compact('kelas', 'siswas', 'mapels'));
+    }
 
+    public function createMapel($slug)
+    {
+        $kelas = Kelas::with('mapel')->where('slug', $slug)->first();
 
-        return view('mapel.index', compact('kelas', 'siswas'));
+        $gurus = User::where('roles', 'Guru')->get();
+        return view('mapel.create', compact('gurus', 'kelas'));
+    }
+
+    public function storeMapel(Request $request, $slug)
+    {
+        $kelas = Kelas::where('slug', $slug)->first();
+        $this->validate($request, [
+            'name' => 'required',
+            'guru' => 'required',
+            'description' => 'required',
+        ]);
+
+        $mapel = [
+            'id' => Uuid::generate(4),
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+            'id_kelas' => $kelas->id,
+            'id_user' => $request->guru,
+            'description' => $request->description
+        ];
+
+        Mapel::create($mapel);
+        toast('Data berhasil di tambah', 'success');
+        return redirect()->route('detail.kelas', [$kelas->slug, $kelas->id]);
+    }
+
+    public function editMapel($id)
+    {
+        //
+    }
+
+    public function updateMapel(Request $request)
+    {
+        //
+    }
+
+    public function deleteMapel($slug, $id)
+    {
+        $kelas = Kelas::with('mapel')->where('slug', $slug)->first();
+        Mapel::findOrFail($id)->delete();
+        toast('data berhasil di hapus', 'success');
+        return redirect()->route('detail.kelas', [$kelas->slug, $kelas->id]);
     }
 }

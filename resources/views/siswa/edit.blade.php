@@ -21,6 +21,20 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label>Kelas</label>
+                        <select class="custom-select custom-select-md" name="id_kelas">
+                            <option selected>-- Kelas -- </option>
+                            @foreach($kelass as $kelas)
+                            <option value="{{$kelas->id}}" @if($kelas->id == $siswa->id_kelas) selected @endif>{{$kelas->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('id_kelas')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label>Email</label>
                         <input type="email" name="email" value="{{$siswa->email}}" class="form-control form-control-user rounded-pill @error('email') is-invalid @enderror">
                         @error('email')

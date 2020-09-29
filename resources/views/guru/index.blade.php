@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -18,14 +18,6 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>No</th>
-                                <th>Name</th>
-                                <th>email</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
                         <tbody>
                             @foreach($gurus as $key => $guru)
                             <tr>

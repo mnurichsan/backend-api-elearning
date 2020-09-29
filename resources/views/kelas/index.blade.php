@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -20,23 +20,13 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>No</th>
-                                <th>Name</th>
-                                <th>Jurusan</th>
-                                <th>Wali Kelas</th>
-                                <th>Image</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
                         <tbody>
                             @foreach($kelass as $key => $kelas)
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$kelas->name}}</td>
                                 <td>{{$kelas->jurusan->name}}</td>
-                                <td>{{$kelas->walikelas->name}}</td>
+                                <td>{{$kelas->walikelas['name']}}</td>
                                 <td><img src="{{asset($kelas->image)}}" class="img-fluid" width="100px"></td>
                                 <td>
                                     <a href="{{route('kelas.edit',$kelas->id)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>

@@ -9,29 +9,23 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
-                                <th>email</th>
+                                <th>Email</th>
+                                <th>Kelas</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>No</th>
-                                <th>Name</th>
-                                <th>email</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
                         <tbody>
                             @foreach($siswas as $key => $siswa)
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$siswa->name}}</td>
                                 <td>{{$siswa->email}}</td>
+                                <td>{{$siswa->siswa['name']}}</td>
                                 <td>
                                     <a href="{{route('siswa.edit',$siswa->id)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                                     <a href="{{route('siswa.destroy',$siswa->id)}}" class="btn btn-sm btn-danger btn-hapus"><i class="fas fa-trash"></i></a>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Kelas;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +27,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('siswa.create');
+        $kelass = Kelas::all();
+        return view('siswa.create', compact('kelass'));
     }
 
     /**
@@ -41,7 +43,8 @@ class SiswaController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'konfirmpass' => 'required'
+            'konfirmpass' => 'required',
+            'id_kelas' => 'required'
         ]);
 
         if ($request->password == $request->konfirmpass) {
@@ -49,6 +52,7 @@ class SiswaController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
+                'id_kelas' => $request->id_kelas,
                 'roles' => 'Siswa'
             ];
             User::create($siswa);
@@ -80,7 +84,8 @@ class SiswaController extends Controller
     public function edit($id)
     {
         $siswa = User::findOrFail($id);
-        return view('siswa.edit', compact('siswa'));
+        $kelass = Kelas::all();
+        return view('siswa.edit', compact('siswa', 'kelass'));
     }
 
     /**
@@ -95,18 +100,21 @@ class SiswaController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
+            'id_kelas' => 'required',
             'password' => 'nullable|string|min:8'
         ]);
         if ($request->password && $request->konfirmpass == "") {
             $siswa = [
                 'name' => $request->name,
-                'email' => $request->email
+                'email' => $request->email,
+                'id_kelas' => $request->id_kelas
             ];
         } else {
             if ($request->password == $request->konfirmpass) {
                 $siswa = [
                     'name' => $request->name,
                     'email' => $request->email,
+                    'id_kelas' => $request->id_kelas,
                     'password' => Hash::make($request->password)
                 ];
             } else {

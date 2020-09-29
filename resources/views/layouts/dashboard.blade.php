@@ -2,75 +2,95 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Elearning - Dashboard</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="{{asset('asset_backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="{{asset('asset_backend/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
-    <link href="{{asset('asset_backend/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <title>Elearning - Backend | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{asset('asset_backend/plugins/fontawesome-free/css/all.min.css')}}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="{{asset('asset_backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{{asset('asset_backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{{asset('asset_backend/plugins/jqvmap/jqvmap.min.css')}}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{asset('asset_backend/css/adminlte.min.css')}}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{asset('asset_backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{asset('asset_backend/plugins/daterangepicker/daterangepicker.css')}}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{asset('asset_backend/plugins/summernote/summernote-bs4.css')}}">
+    <!-- Google Font: Source Sans Pro -->
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset('asset_backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('asset_backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 </head>
 
-<body id="page-top">
+<body class="hold-transition sidebar-mini layout-fixed">
 
     <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
 
         <!-- Sidebar -->
         @include('layouts.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                @include('layouts.header')
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
-                    </div>
-
-                    <!-- Content Row -->
-                    @yield('content')
-                    <!-- Content Row -->
-
-                </div>
-                <!-- /.container-fluid -->
-
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">@yield('title')</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">@yield('title')</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
             </div>
-            <!-- End of Main Content -->
-
-            @include('layouts.footer')
-
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <section class="content">
+                @yield('content')
+            </section>
+            <!-- /.content -->
         </div>
         <!-- End of Content Wrapper -->
-
+        @include('layouts.footer')
     </div>
     <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -132,25 +152,46 @@
 
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('asset_backend/vendor/jquery/jquery.min.js')}}">
+
+    <!-- jQuery -->
+    <script src="{{asset('asset_backend/plugins/jquery/jquery.min.js')}}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="{{asset('asset_backend/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
     </script>
-    <script src="{{asset('asset_backend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{asset('asset_backend/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{asset('asset_backend/js/sb-admin-2.min.js')}}"></script>
-
-    <!-- Page level plugins -->
-
-    <script src="{{asset('asset_backend/vendor/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('asset_backend/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
-
-    <!-- Page level custom scripts -->
-
-    <script src="{{asset('asset_backend/js/demo/datatables-demo.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{asset('asset_backend/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- ChartJS -->
+    <script src="{{asset('asset_backend/plugins/chart.js/Chart.min.js')}}"></script>
+    <!-- Sparkline -->
+    <script src="{{asset('asset_backend/plugins/sparklines/sparkline.js')}}"></script>
+    <!-- JQVMap -->
+    <script src="{{asset('asset_backend/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+    <script src="{{asset('asset_backend/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="{{asset('asset_backend/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+    <!-- daterangepicker -->
+    <script src="{{asset('asset_backend/plugins/moment/moment.min.js')}}"></script>
+    <script src="{{asset('asset_backend/plugins/daterangepicker/daterangepicker.js')}}"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="{{asset('asset_backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+    <!-- Summernote -->
+    <script src="{{asset('asset_backend/plugins/summernote/summernote-bs4.min.js')}}"></script>
+    <!-- overlayScrollbars -->
+    <script src="{{asset('asset_backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{asset('asset_backend/js/adminlte.js')}}"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{{asset('asset_backend/js/pages/dashboard.js')}}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{{asset('asset_backend/js/demo.js')}}"></script>
+    <!-- DataTables -->
+    <script src="{{asset('asset_backend/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('asset_backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('asset_backend/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('asset_backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 
     <!-- script js custom -->
 
@@ -164,39 +205,28 @@
                 $('#modal-hapus').modal();
             });
 
-            $(".save-data").click(function(event) {
-                event.preventDefault();
-
-                let title = $("input[name=title]").val();
-                let body = $("input[name=body]").val();
-                let userId = 1;
-
-                $.ajax({
-                    url: "https://jsonplaceholder.typicode.com/posts",
-                    type: "POST",
-                    data: {
-                        title: title,
-                        body: body,
-                        userId: userId,
-                    },
-                    success: function(response) {
-                        console.log(response);
-                        Swal.fire(
-                            'Good job!',
-                            'You clicked the button!',
-                            'success'
-                        )
-                        if (response) {
-                            $('.success').text(response.success);
-                            $("#ajaxform")[0].reset();
-                        }
-                    },
-                });
-            });
         });
     </script>
 
     @include('sweetalert::alert')
+
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
 
 </body>
 

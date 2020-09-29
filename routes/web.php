@@ -42,5 +42,8 @@ Route::resource('/siswa', 'SiswaController');
 //content
 Route::get('/content', 'ContentController@index')->name('content.index');
 Route::get('/content/{id}', 'ContentController@contentKelas')->name('content.kelas');
+Route::get('/content/kelas/{slug}/mapel/create', 'ContentController@createMapel')->name('mapel.create');
+Route::post('/content/kelas/{slug}/mapel/store', 'ContentController@storeMapel')->name('mapel.store');
+Route::get('/content/kelas/{slug}/mapel/edit/{id}', 'ContentController@editMapel')->name('mapel.edit');
+Route::delete('/content/kelas/{slug}/mapel/delete/{id}', 'ContentController@deleteMapel')->name('mapel.delete');
 Route::get('/content/kelas/{slug}/{id}', 'ContentController@detailKelas')->name('detail.kelas');
-// Route::get('/content/kelas/{slug}/mapel', 'ContentController@mapelKelas')->name('mapel.kelas');
