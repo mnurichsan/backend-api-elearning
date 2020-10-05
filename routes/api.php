@@ -15,4 +15,5 @@ use Illuminate\Http\Request;
 */
 
 
-Route::get('/kelas', 'API\KelasController@getKelas');
+Route::get('/kelas/{id}', 'API\KelasController@getKelas');
+Route::get('/mymapel/{id}', 'API\MapelController@getMyMapel');

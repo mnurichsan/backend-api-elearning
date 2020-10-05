@@ -8,9 +8,9 @@ use App\Model\Kelas;
 
 class KelasController extends Controller
 {
-    public function getKelas()
+    public function getKelas($id)
     {
-        $kelas = Kelas::with('jurusan')->get();
+        $kelas = Kelas::where('id', $id)->first();
 
         return response()->json($kelas, 200);
     }

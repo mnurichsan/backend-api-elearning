@@ -13,4 +13,9 @@ class Mapel extends Model
     {
         return $this->belongsTo('App\Model\Kelas', 'id_kelas', 'id');
     }
+
+    public function guru()
+    {
+        return $this->belongsTo('App\User', 'id_user', 'id');
+    }
 }

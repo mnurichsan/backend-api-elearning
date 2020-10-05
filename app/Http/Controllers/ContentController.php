@@ -68,6 +68,13 @@ class ContentController extends Controller
         return redirect()->route('detail.kelas', [$kelas->slug, $kelas->id]);
     }
 
+    public function showMapel($slug, $id)
+    {
+        $kelas = Kelas::where('slug', $slug)->first();
+        $mapel = Mapel::with('guru')->findOrFail($id);
+        return view('mapel.show', compact('kelas', 'mapel'));
+    }
+
     public function editMapel($id)
     {
         //

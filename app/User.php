@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Model\Kelas', 'id_kelas', 'id');
     }
+
+    public function mapel()
+    {
+        return $this->hasOne('App\Model\Mapel', 'id_user', 'id');
+    }
 }

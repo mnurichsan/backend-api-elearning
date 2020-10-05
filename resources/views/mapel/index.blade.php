@@ -32,7 +32,7 @@
                                                 <img src="https://via.placeholder.com/60">
                                             </td>
                                             <td>
-                                                <a href="" class="text-decoration-none font-weight-bold text-reset">{{$mapel->name}}</a>
+                                                <a href="{{route('mapel.show',[$mapel->kelas->slug,$mapel->id])}}" class="text-decoration-none font-weight-bold text-reset">{{$mapel->name}}</a>
                                                 <div class="text-secondary text-justify">
                                                     {{$mapel->description}}
                                                 </div>
