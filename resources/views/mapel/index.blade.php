@@ -32,7 +32,7 @@
                                                 <img src="https://via.placeholder.com/60">
                                             </td>
                                             <td>
-                                                <a href="{{route('mapel.show',[$mapel->kelas->slug,$mapel->id])}}" class="text-decoration-none font-weight-bold text-reset">{{$mapel->name}}</a>
+                                                <a href="{{route('mapel.show',[$mapel->kelas->slug,$mapel->slug])}}" class="text-decoration-none font-weight-bold text-reset">{{$mapel->name}}</a>
                                                 <div class="text-secondary text-justify">
                                                     {{$mapel->description}}
                                                 </div>
@@ -43,8 +43,8 @@
                                                         <i class="fas fa-ellipsis-v"></i>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <a href="" class="dropdown-item">Edit</a>
-                                                        <a href="{{route('mapel.delete',[$mapel->kelas['slug'],$mapel->id])}}" class="dropdown-item btn-hapus">Delete</a>
+                                                        <a href="{{route('mapel.edit',[$mapel->kelas->slug,$mapel->id])}}" class="dropdown-item">Edit</a>
+                                                        <a href="{{route('mapel.delete',[$mapel->kelas->slug,$mapel->id])}}" class="dropdown-item btn-hapus">Delete</a>
                                                     </div>
                                                 </div>
                                             </td>

@@ -44,9 +44,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/content', 'ContentController@index')->name('content.index');
     Route::get('/content/{id}', 'ContentController@contentKelas')->name('content.kelas');
     Route::get('/content/kelas/{slug}/mapel/create', 'ContentController@createMapel')->name('mapel.create');
-    Route::get('/content/kelas/{slug}/mapel/show/{id}', 'ContentController@showMapel')->name('mapel.show');
+    Route::get('/content/kelas/{slug}/mapel/{mapel}', 'ContentController@showMapel')->name('mapel.show');
     Route::post('/content/kelas/{slug}/mapel/store', 'ContentController@storeMapel')->name('mapel.store');
     Route::get('/content/kelas/{slug}/mapel/edit/{id}', 'ContentController@editMapel')->name('mapel.edit');
+    Route::put('/content/kelas/{slug}/mapel/update/{id}', 'ContentController@updateMapel')->name('mapel.update');
     Route::delete('/content/kelas/{slug}/mapel/delete/{id}', 'ContentController@deleteMapel')->name('mapel.delete');
     Route::get('/content/kelas/{slug}/{id}', 'ContentController@detailKelas')->name('detail.kelas');
+
+    //tugas
+    Route::get('/content/kelas/{kelas}/mapel/{mapel}/tugas', 'TugasController@index')->name('tugas.index');
+    Route::get('/content/kelas/{kelas}/mapel/{mapel}/edit/{id}', 'TugasController@edit')->name('tugas.edit');
+    Route::put('/content/kelas/{kelas}/mapel/{mapel}/update/{id}', 'TugasController@update')->name('tugas.update');
+    Route::post('/content/kelas/{kelas}/mapel/{mapel}/tugas', 'TugasController@store')->name('tugas.store');
+    Route::get('/content/kelas/{kelas}/mapel/{mapel}/tugas/create', 'TugasController@create')->name('tugas.create');
+    Route::delete('/content/kelas/{kelas}/mapel/{mapel}/tugas/delete/{id}', 'TugasController@destroy')->name('tugas.delete');
 });

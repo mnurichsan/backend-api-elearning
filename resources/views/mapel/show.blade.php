@@ -33,7 +33,7 @@
                             Absen
                         </a>
                     </span>
-                    <span class="info-box-number">1</span>
+                    <span class="info-box-number">0</span>
                 </div>
             </div>
             <div class="info-box">
@@ -47,7 +47,7 @@
                             Materi
                         </a>
                     </span>
-                    <span class="info-box-number">1</span>
+                    <span class="info-box-number">0</span>
                 </div>
             </div>
             <div class="info-box">
@@ -57,11 +57,11 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">
-                        <a href="" class="text-reset">
+                        <a href="{{route('tugas.index',[$mapel->kelas->slug,$mapel->slug])}}" class="text-reset">
                             Tugas
                         </a>
                     </span>
-                    <span class="info-box-number">1</span>
+                    <span class="info-box-number">{{$tugascount}}</span>
                 </div>
             </div>
         </div>

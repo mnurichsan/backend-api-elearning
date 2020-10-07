@@ -18,4 +18,9 @@ class Mapel extends Model
     {
         return $this->belongsTo('App\User', 'id_user', 'id');
     }
+
+    public function tugas()
+    {
+        return $this->hasMany('App\Model\Tugas', 'id_mapel', 'id');
+    }
 }
