@@ -17,3 +17,4 @@ use Illuminate\Http\Request;
 
 Route::get('/kelas/{id}', 'API\KelasController@getKelas');
 Route::get('/mymapel/{id}', 'API\MapelController@getMyMapel');
+Route::post('/kumpul-tugas/{tugas}/{user}', 'API\KumpulTugasController@store');

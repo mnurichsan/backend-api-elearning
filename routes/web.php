@@ -53,9 +53,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     //tugas
     Route::get('/content/kelas/{kelas}/mapel/{mapel}/tugas', 'TugasController@index')->name('tugas.index');
-    Route::get('/content/kelas/{kelas}/mapel/{mapel}/edit/{id}', 'TugasController@edit')->name('tugas.edit');
-    Route::put('/content/kelas/{kelas}/mapel/{mapel}/update/{id}', 'TugasController@update')->name('tugas.update');
+    Route::get('/content/kelas/{kelas}/mapel/{mapel}/tugas/edit/{id}', 'TugasController@edit')->name('tugas.edit');
+    Route::put('/content/kelas/{kelas}/mapel/{mapel}/tugas/update/{id}', 'TugasController@update')->name('tugas.update');
     Route::post('/content/kelas/{kelas}/mapel/{mapel}/tugas', 'TugasController@store')->name('tugas.store');
     Route::get('/content/kelas/{kelas}/mapel/{mapel}/tugas/create', 'TugasController@create')->name('tugas.create');
     Route::delete('/content/kelas/{kelas}/mapel/{mapel}/tugas/delete/{id}', 'TugasController@destroy')->name('tugas.delete');
+    Route::get('/content/kelas/{kelas}/mapel/{mapel}/kumpul-tugas/{id}', 'KumpulTugasController@index')->name('tugas.kumpul');
+    Route::delete('/content/kelas/{kelas}/mapel/{mapel}/kumpul-tugas/delete/{id}', 'KumpulTugasController@destroy')->name('delete.kumpul');
 });

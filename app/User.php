@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Model\Mapel', 'id_user', 'id');
     }
+
+    public function kumpulTugas()
+    {
+        return $this->hasMany('App\Model\KumpulTugas', 'id_user', 'id');
+    }
 }

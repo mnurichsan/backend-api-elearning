@@ -14,4 +14,9 @@ class Tugas extends Model
     {
         return $this->belongsTo('App\Model\Mapel', 'id_mapel', 'id');
     }
+
+    public function kumpulTugas()
+    {
+        return $this->hasMany('App\Model\KumpulTugas', 'id_tugas', 'id');
+    }
 }

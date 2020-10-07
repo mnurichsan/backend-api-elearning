@@ -39,7 +39,7 @@
                                 <td>{{$tugas->start_at->format('d-m-Y')}}</td>
                                 <td>{{$tugas->end_at->format('d-m-Y')}}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('tugas.kumpul',[$kelass->slug,$mapels->slug,$tugas->id])}}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                                     <a href="{{route('tugas.edit',[$kelass->slug,$mapels->slug,$tugas->id])}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                                     <a href="{{route('tugas.delete',[$kelass->slug,$mapels->slug,$tugas->id])}}" class="btn btn-sm btn-danger btn-hapus"><i class="fas fa-trash"></i></a>
                                 </td>
