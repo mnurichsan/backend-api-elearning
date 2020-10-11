@@ -29,11 +29,11 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">
-                        <a href="" class="text-reset">
+                        <a href="{{route('absen.index',[$mapel->kelas->slug,$mapel->slug])}}" class="text-reset">
                             Absen
                         </a>
                     </span>
-                    <span class="info-box-number">0</span>
+                    <span class="info-box-number">{{$absenCount}}</span>
                 </div>
             </div>
             <div class="info-box">

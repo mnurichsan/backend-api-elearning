@@ -60,4 +60,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/content/kelas/{kelas}/mapel/{mapel}/tugas/delete/{id}', 'TugasController@destroy')->name('tugas.delete');
     Route::get('/content/kelas/{kelas}/mapel/{mapel}/kumpul-tugas/{id}', 'KumpulTugasController@index')->name('tugas.kumpul');
     Route::delete('/content/kelas/{kelas}/mapel/{mapel}/kumpul-tugas/delete/{id}', 'KumpulTugasController@destroy')->name('delete.kumpul');
+
+    //absen
+    Route::get('/content/kelas/{kelas}/mapel/{mapel}/absen', 'AbsenController@index')->name('absen.index');
+    Route::get('/content/kelas/{kelas}/mapel/{mapel}/absen/create', 'AbsenController@create')->name('absen.create');
+    Route::post('/content/kelas/{kelas}/mapel/{mapel}/absen/store', 'AbsenController@store')->name('absen.store');
 });

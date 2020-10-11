@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Absen;
 use App\Model\Jurusan;
 use App\Model\Kelas;
 use App\Model\Mapel;
@@ -73,9 +74,10 @@ class ContentController extends Controller
     {
         $mapel_id = Mapel::select('id')->where('slug', $mapel)->first();
         $tugascount = Tugas::where('id_mapel', $mapel_id->id)->count();
+        $absenCount = Absen::where('id_mapel', $mapel_id->id)->count();
         $kelas = Kelas::where('slug', $slug)->first();
         $mapel = Mapel::with('guru')->where('slug', $mapel)->first();
-        return view('mapel.show', compact('kelas', 'mapel', 'tugascount'));
+        return view('mapel.show', compact('kelas', 'mapel', 'tugascount', 'absenCount'));
     }
 
     public function editMapel($slug, $id)
