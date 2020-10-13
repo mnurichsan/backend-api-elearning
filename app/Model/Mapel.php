@@ -23,4 +23,9 @@ class Mapel extends Model
     {
         return $this->hasMany('App\Model\Tugas', 'id_mapel', 'id');
     }
+
+    public function absen()
+    {
+        return $this->hasMany('App\Model\Absen', 'id_mapel', 'id');
+    }
 }

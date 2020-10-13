@@ -14,7 +14,13 @@ use Illuminate\Http\Request;
 |
 */
 
-
+Route::post('/login', 'API\UserController@login');
 Route::get('/kelas/{id}', 'API\KelasController@getKelas');
-Route::get('/mymapel/{id}', 'API\MapelController@getMyMapel');
-Route::post('/kumpul-tugas/{tugas}/{user}', 'API\KumpulTugasController@store');
+
+
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('/mymapel', 'API\MapelController@getMyMapel');
+    Route::get('/mymapel/{id}', 'API\MapelController@detailMyMapel');
+    Route::get('/myprofil', 'API\UserController@myProfil');
+    Route::post('/logout', 'API\UserController@logout');
+});
